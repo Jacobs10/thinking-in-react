@@ -1,6 +1,6 @@
 var PRODUCTS= [
   {name: 'Angular', company: 'Google', category: 'Client', js: true,
-  comments: [{name: 'Jed', text: "A great framework"}] },
+  comments: [{name: 'Jed', text: "A great framework"}, {name: 'Joe', text: "I prefer React"}] },
   {name: 'React', company: 'Facebook', category: 'Client', js: true,
   comments: [{name: 'Jed', text: "A great framework"}] },
   {name: 'Meteor', company: 'Independent', category: 'Server', js: true,

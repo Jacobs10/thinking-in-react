@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ProductCommentsButton from './product-comments-button.js'
+import ProductComments from './product-comments.js'
+import ProductCommentForm from './product-comment-form.js'
 
 export default class ProductRow extends Component {
   constructor(){
@@ -9,10 +11,16 @@ export default class ProductRow extends Component {
     }
   }
   getComments(){
+    var commentArray = []
     if(!this.state.showComment){ return ''}
-    return this.props.comments.map(comment => {return (
-      comment.text + '|' + comment.name
-    ) })
+    this.props.comments.map(comment => {
+      commentArray.push(<ProductComments name={comment.name} text={comment.text} />)
+     })
+     commentArray.push(<ProductCommentForm
+                        addComment={this.props.addComment.bind(this)}
+                        index={this.props.index}
+                        productName={this.props.name} />)
+     return commentArray
   }
   handleButtonClick(){
     this.setState({
@@ -32,7 +40,7 @@ export default class ProductRow extends Component {
           />
       </tr>
       <tr>
-        {comments}
+        {this.getComments()}
       </tr>
       </div>
     )
